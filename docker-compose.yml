@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://database:27017
+      - MODE=docker
+    depends_on:
+      - database
+  database:
+    image: mongo:latest
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
