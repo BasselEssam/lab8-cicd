@@ -3,9 +3,11 @@ db = db.getSiblingDB('lab6db');
 
 // Insert sample tasks into the 'tasks' collection
 db.tasks.insertMany([
-  { task: 'Complete Lab 6 Part B', status: 'completed' },
-  { task: 'Test Docker Compose', status: 'pending' },
-  { task: 'Submit Assignment', status: 'pending' }
+    { id: 1, name: 'Milk',          status: 'done'    },
+    { id: 2, name: 'Eggs',          status: 'done'    },
+    { id: 3, name: 'Bread',         status: 'pending' },
+    { id: 4, name: 'Butter',        status: 'pending' },
+    { id: 5, name: 'Orange juice',  status: 'pending' },
 ]);
 
 print("Database initialized successfully!");
