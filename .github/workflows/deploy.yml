@@ -24,7 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: basselessam47/lab8-app:latest
+          tags: <basselessam47/lab8-app:latest
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
@@ -34,7 +34,7 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             cd ~/lab8-cicd
-            git pull origin main
-            docker compose down
+            git pull
             docker compose pull
+            docker compose down
             docker compose up -d
